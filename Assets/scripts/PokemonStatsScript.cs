@@ -15,6 +15,7 @@ public class PokemonStatsScript : MonoBehaviour
     string data_path;
     string Iv;
     public string Pokemon_ID;
+    public string Name;
     public int Pokemon_list_position;
     
 
@@ -40,6 +41,14 @@ public class PokemonStatsScript : MonoBehaviour
         {
             File.WriteAllText(Application.dataPath + data_path, Levle.ToString());
         }        
+    }
+    public void write_Name()
+    {
+        data_path = "/Pokemon/SavedPokemonData" + "/" + Pokemon_ID + "Name" + ".txt";
+        if (!File.Exists(data_path))
+        {
+            File.WriteAllText(Application.dataPath + data_path, name);
+        }
     }
     public void Write_ID()
     {
