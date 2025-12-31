@@ -9,6 +9,7 @@ public class StarterSelecterScrfipt : MonoBehaviour
 {
     // opaning delay vars
     InputAction InteractAction;
+    bool Fade_screen;
     float Delay = 0f;
     float Delay1 = 0f;
     float alpha = 0f;
@@ -42,6 +43,7 @@ public class StarterSelecterScrfipt : MonoBehaviour
     [SerializeField] GameObject[] Pokeballs;
     string Pokemon_name;
     bool All_done;
+    bool set_screen_to_fade;
     private void Start()
     {
         InteractAction = InputSystem.actions.FindAction("Interact");
@@ -50,7 +52,8 @@ public class StarterSelecterScrfipt : MonoBehaviour
     }
     private void Update()
     {
-        opaning_delay(); // handles the opaning fade of the game and opens the starter selections            
+        opaning_delay(); // handles the opaning fade of the game and opens the starter selections
+        closing_delay();
         if (turn_thing_on == true)
         {
             Chose_LeftMost_sarter();                      
@@ -60,21 +63,7 @@ public class StarterSelecterScrfipt : MonoBehaviour
         if (buttons[0].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Chose pokemon"))
         {
             are_you_sure_text.SetActive(true);
-        }
-        
-        if(All_done == true)
-        {
-            if (Delay <= 0f)
-            {
-                alpha = alpha + 0.01f;
-                blackscreeencolour.a = alpha;
-                blackscreenimage.color = blackscreeencolour;
-            }
-            else
-            {
-                Delay = Delay - 2f * Time.deltaTime;
-            }
-        }
+        }        
     }
 
     void Sound_manager()
@@ -107,50 +96,41 @@ public class StarterSelecterScrfipt : MonoBehaviour
     }
     void opaning_delay()
     {
-        if (blackscreen.activeInHierarchy == true)
+        if (All_done == false)
         {
-            if (Delay <= 0f)
+            if (Fade_screen == true)
             {
-                if (turning_off == false)
+                if (set_screen_to_fade == false)
                 {
-                    alpha = alpha + 0.01f;
-                    blackscreeencolour.a = alpha;
-                    blackscreenimage.color = blackscreeencolour;
+                    game_manager.GetComponent<FadeScreenHandlerScript>().Start_delay();
+                    set_screen_to_fade = true;
                 }
-                else
-                {
-                    alpha = alpha - 0.01f;
-                    blackscreeencolour.a = alpha;
-                    blackscreenimage.color = blackscreeencolour;
-                }
-
-                if (blackscreenimage.color.a >= 1f)
-                {
-                    Delay = 1f;
-                    fade_delay = true;
-                }
-                if (blackscreenimage.color.a == 0f)
-                {
-                    //turning_off = true;
-                }
-                Delay = offset;
+                Fade_screen = false;
             }
-            else
+            if (game_manager.GetComponent<FadeScreenHandlerScript>().Screen_is_hid == true)
             {
-                Delay = Delay - 2f * Time.deltaTime;
+                pick_your_pokemon_screen_stuff.SetActive(true);
             }
-
-            if (fade_delay == true)
+        }
+    }
+    void closing_delay()
+    {
+        if (All_done == true)
+        {
+            if (Fade_screen == true)
             {
-                if (Delay1 <= 0f)
+                if (set_screen_to_fade == false)
                 {
-                    turning_off = true;
-                    pick_your_pokemon_screen_stuff.SetActive(true);                    
+                    game_manager.GetComponent<FadeScreenHandlerScript>().Start_delay();
+                    set_screen_to_fade = true;
+                    Debug.Log("test");
                 }
-                else
-                {
-                    Delay1 = Delay1 - 1f * Time.deltaTime;
-                }
+            }
+            if (game_manager.GetComponent<FadeScreenHandlerScript>().Screen_is_hid == true)
+            {
+                pick_your_pokemon_screen_stuff.SetActive(false);
+                All_done = false;
+                Player.GetComponent<PlayerMovmentScript>().Can_move = true;
             }
         }
     }
@@ -218,7 +198,9 @@ public class StarterSelecterScrfipt : MonoBehaviour
         Player.GetComponent<PlayerPokemonPartyScript>().set_slot_one();
         Player.GetComponent<PlayerPokemonPartyScript>().Load_slot_one();        
         turning_off = false;
-        All_done = true;
+        Fade_screen = true;
+        set_screen_to_fade = false;
+        All_done = true;       
     }
 
     private void OnTriggerStay(Collider other)
@@ -228,8 +210,8 @@ public class StarterSelecterScrfipt : MonoBehaviour
             if (Has_pressed_the_interact_button_once == false)
             {
                 if (InteractAction.IsPressed())
-                {
-                    blackscreen.SetActive(true);
+                {           
+                    Fade_screen = true;                    
                     hitbox = other.gameObject;
                     Player = hitbox.GetComponent<HitBotVarHolderscript>().Player;
                     Player.GetComponent<PlayerMovmentScript>().Can_move = false;
