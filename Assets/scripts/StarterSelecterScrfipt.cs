@@ -44,6 +44,7 @@ public class StarterSelecterScrfipt : MonoBehaviour
     string Pokemon_name;
     bool All_done;
     bool set_screen_to_fade;
+    [SerializeField] GameObject[] moves_leftmostpokemon_can_learn;
     private void Start()
     {
         InteractAction = InputSystem.actions.FindAction("Interact");
@@ -122,14 +123,15 @@ public class StarterSelecterScrfipt : MonoBehaviour
                 if (set_screen_to_fade == false)
                 {
                     game_manager.GetComponent<FadeScreenHandlerScript>().Start_delay();
-                    set_screen_to_fade = true;
-                    Debug.Log("test");
+                    set_screen_to_fade = true;                   
                 }
             }
             if (game_manager.GetComponent<FadeScreenHandlerScript>().Screen_is_hid == true)
             {
-                pick_your_pokemon_screen_stuff.SetActive(false);
+                Destroy(pick_your_pokemon_screen_stuff);
+                Destroy(this.gameObject.GetComponent<StarterSelecterScrfipt>());
                 All_done = false;
+                Debug.Log("test");
                 Player.GetComponent<PlayerMovmentScript>().Can_move = true;
             }
         }

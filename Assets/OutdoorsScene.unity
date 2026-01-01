@@ -4176,6 +4176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 192590648}
   - component: {fileID: 192590647}
+  - component: {fileID: 192590652}
   - component: {fileID: 192590649}
   - component: {fileID: 192590650}
   - component: {fileID: 192590651}
@@ -4341,6 +4342,20 @@ MonoBehaviour:
   lengh_for_wait: 0.01
   Fade_screen: {fileID: 624561565}
   Screen_is_hid: 0
+--- !u!114 &192590652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192590646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671cc454c6b465746aa7cd9791a59881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Move_list:
+  - {fileID: 4612599847201616749, guid: 92e1a0e7ceca90245a25178ad342c9b2, type: 3}
 --- !u!1 &193161330
 GameObject:
   m_ObjectHideFlags: 0
@@ -36119,6 +36134,7 @@ MonoBehaviour:
   - {fileID: 1007921693}
   - {fileID: 1966599746}
   - {fileID: 297830438}
+  moves_leftmostpokemon_can_learn: []
 --- !u!65 &2056750964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37969,6 +37985,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e577bf6969329f478bdb923f0129fc0, type: 3}
+--- !u!1001 &6350804207617948376
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954848021232788269, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612599847201616749, guid: 92e1a0e7ceca90245a25178ad342c9b2,
+        type: 3}
+      propertyPath: m_Name
+      value: Quick Attack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92e1a0e7ceca90245a25178ad342c9b2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -37984,3 +38068,4 @@ SceneRoots:
   - {fileID: 1654587687}
   - {fileID: 2056750967}
   - {fileID: 192590648}
+  - {fileID: 6350804207617948376}
