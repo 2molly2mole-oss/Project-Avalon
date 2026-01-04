@@ -6,7 +6,7 @@ using System.IO;
 
 public class PokemonStatsScript : MonoBehaviour
 {
-    public int Levle;
+    public float Levle;
     public float[] PokemonStats; //stats are (hp 0) (attack 1) (defense 2) (spattack 3) (spdefence 4) (speed 5)
    // public float Iv;
     public float[] iv;
@@ -17,6 +17,7 @@ public class PokemonStatsScript : MonoBehaviour
     public string Pokemon_ID;
     public string Name;
     public int Pokemon_list_position;
+    string temp;
     
 
     public void Genarate_ivs_and_evs()
@@ -29,9 +30,11 @@ public class PokemonStatsScript : MonoBehaviour
         iv[5] = Random.Range(0f, 32f);
     }
 
-    void Load_EVS_and_ivs ()
+    public void Load_all_stats ()
     {
-       
+        data_path = "/Pokemon/SavedPokemonData" + "/" + Pokemon_ID + "Levle" + ".txt";
+        temp = File.ReadAllText(Application.dataPath + data_path);
+        Levle = float.Parse(temp);
     }
 
     public void write_levles()

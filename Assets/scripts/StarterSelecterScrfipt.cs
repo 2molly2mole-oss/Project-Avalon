@@ -28,7 +28,7 @@ public class StarterSelecterScrfipt : MonoBehaviour
     [SerializeField] GameObject[] Pokemon;   
     [SerializeField] bool turn_thing_on; // left in for testing
     [SerializeField] GameObject game_manager;
-    int ID;
+    [SerializeField] int ID;// left in for testing
     [SerializeField] int Pokemon_list_position = 0;
     GameObject our_starter_pokemon;
     [SerializeField] GameObject first_button_selected;
@@ -197,6 +197,7 @@ public class StarterSelecterScrfipt : MonoBehaviour
         our_starter_pokemon.GetComponent<PokemonStatsScript>().write_evs_ivs_1();
         our_starter_pokemon.GetComponent<PokemonStatsScript>().write_Name();
         Player.GetComponent<PlayerPokemonPartyScript>().Pokemon_list_nuber = Pokemon_list_position;
+        Player.GetComponent<PlayerPokemonPartyScript>().Pokemon_ID = ID.ToString();
         Player.GetComponent<PlayerPokemonPartyScript>().set_slot_one();
         Player.GetComponent<PlayerPokemonPartyScript>().Load_slot_one();        
         turning_off = false;

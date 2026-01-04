@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7466955582111961036}
   - component: {fileID: 3609614527107320406}
   - component: {fileID: 2914325331550920863}
+  - component: {fileID: 7411602541417442659}
   m_Layer: 0
   m_Name: pikachu
   m_TagString: Untagged
@@ -105,4 +106,22 @@ MonoBehaviour:
   - 0
   test: 0
   Pokemon_ID: 
+  Name: 
   Pokemon_list_position: 0
+--- !u!114 &7411602541417442659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257676942240647516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e7386eeb632f6408a722b8ed120771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Current_known_moves:
+  - {fileID: 4612599847201616749, guid: 92e1a0e7ceca90245a25178ad342c9b2, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

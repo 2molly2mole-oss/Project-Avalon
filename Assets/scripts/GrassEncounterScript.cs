@@ -10,14 +10,19 @@ public class GrassEncounterScript : MonoBehaviour
     BattleHandlerScript BHS;
     [SerializeField] int Minimun_levle_range;
     [SerializeField] int Maximum_levle_range;
+    int levle;
     GameObject Player;
 
     private void Update()
     {
         if(Has_encountered == true)
-        {            
+        {
+            string temp;
             BHS.Reset_opaning();
             BHS.Enemy_pokemon = Encouter_pool[Random.Range(0, Encouter_pool.Length)];
+            levle = Random.Range(Minimun_levle_range, Maximum_levle_range);
+            temp = levle.ToString();
+            BHS.Enemy_Pokemon_Levle = float.Parse(temp);
             BHS.Battle_Opaning();
             Debug.Log("PlayerFound");
             Has_encountered = false;
