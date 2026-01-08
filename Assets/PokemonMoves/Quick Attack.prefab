@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: Normal
   Is_physical: 1
+  IS_Attacking_move: 1
   priority_levle: 1
   Power: 40
   Accuracy: 100

@@ -13,7 +13,7 @@ public class PlayerPokemonPartyScript : MonoBehaviour
     [SerializeField] string Show_what_your_saved_as;
     public void set_slot_one()
     {
-        data_path = "/Pokemon/SavedPokemonData" + "/" + Pokemon_ID + "pokemon1" + ".txt";
+        data_path = "/Pokemon/SavedPokemonData" + "/" + "pokemon1" + ".txt";
         if (!File.Exists(data_path))
         {
             File.WriteAllText(Application.dataPath + data_path, Pokemon_ID.ToString());
@@ -22,10 +22,11 @@ public class PlayerPokemonPartyScript : MonoBehaviour
 
    public void Load_slot_one()
     {
+        data_path = "/Pokemon/SavedPokemonData" + "/" + "pokemon1" + ".txt";
+        Pokemon_ID = File.ReadAllText(Application.dataPath + data_path);
         data_path = "/Pokemon/SavedPokemonData" + "/" + Pokemon_ID + "ID" + ".txt";
-        Show_what_your_saved_as = File.ReadAllText(Application.dataPath + data_path); // for testing
+        // Show_what_your_saved_as = File.ReadAllText(Application.dataPath + data_path); // for testing
         Pokemon_list_nuber = int.Parse(File.ReadAllText(Application.dataPath + data_path));
-        pokemon[0] = Pokemon_list.GetComponent<EveryPokemon>().Pokemon_list[Pokemon_list_nuber];
-        data_path = "/Pokemon/SavedPokemonData" + "/" + Pokemon_ID + "pokemon1" + ".txt";        
+        pokemon[0] = Pokemon_list.GetComponent<EveryPokemon>().Pokemon_list[Pokemon_list_nuber];        
     }
 }
